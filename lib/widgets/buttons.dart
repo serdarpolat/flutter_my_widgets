@@ -22,6 +22,8 @@ class Buttons extends StatelessWidget {
             RaisedButtonRectangleGradientBorder(),
             SizedBox(height: 16),
             FlatButtonRectangleGradientBorder(),
+            SizedBox(height: 16),
+            CircularButton(),
           ],
         ),
       ),
@@ -116,6 +118,29 @@ class FlatButtonRectangleGradientBorder extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),
         child: const Text('Gradient Flat Button'),
       ),
+    );
+  }
+}
+
+class CircularButton extends StatelessWidget {
+  const CircularButton({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: () {},
+      elevation: 4.0,
+      focusElevation: 0.0,
+      highlightElevation: 0.0,
+      hoverElevation: 0.0,
+      fillColor: Colors.teal,
+      child: Icon(
+        Icons.ac_unit,
+        size: 24.0,
+        color: Colors.white,
+      ),
+      padding: EdgeInsets.all(18.0),
+      shape: CircleBorder(),
     );
   }
 }
