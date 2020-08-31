@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_widgets/pages.dart';
 import 'package:my_widgets/widgets/page_indicator2.dart';
+import 'package:my_widgets/widgets/sliding_parallax_card.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Buttons(),
+      home: SlidingCardsView(),
     );
   }
 }

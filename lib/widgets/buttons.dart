@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_widgets/widgets/concave_decoration.dart';
 
 class Buttons extends StatelessWidget {
   @override
@@ -24,6 +25,10 @@ class Buttons extends StatelessWidget {
             FlatButtonRectangleGradientBorder(),
             SizedBox(height: 16),
             CircularButton(),
+            SizedBox(height: 16),
+            InkWellCircularButton(),
+            SizedBox(height: 16),
+            NeuMorphicInnerShadow(),
           ],
         ),
       ),
@@ -141,6 +146,51 @@ class CircularButton extends StatelessWidget {
       ),
       padding: EdgeInsets.all(18.0),
       shape: CircleBorder(),
+    );
+  }
+}
+
+class InkWellCircularButton extends StatelessWidget {
+  const InkWellCircularButton({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipOval(
+      child: Material(
+        color: Colors.blue, // button color
+        child: InkWell(
+          splashColor: Colors.red, // inkwell color
+          child: SizedBox(width: 56, height: 56, child: Icon(Icons.menu)),
+          onTap: () {},
+        ),
+      ),
+    );
+  }
+}
+
+class NeuMorphicInnerShadow extends StatelessWidget {
+  const NeuMorphicInnerShadow({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    Size s = MediaQuery.of(context).size;
+    return Container(
+      width: s.width,
+      height: 100,
+      color: Colors.black.withOpacity(0.1),
+      padding: EdgeInsets.all(20.0),
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 200),
+        decoration: ConcaveDecoration(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(60),
+            ),
+            depth: 1,
+            colors: [
+              Colors.black26,
+              Colors.white,
+            ]),
+      ),
     );
   }
 }
